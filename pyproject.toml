@@ -5,6 +5,7 @@ description = "A package to convert simple root files with branches inside and n
 authors = ["Uttiya Sarkar"]
 license = "MIT"
 readme = "README.md"
+include = ["tests/*"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
