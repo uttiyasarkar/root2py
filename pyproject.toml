@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "root2py"
-version = "0.1.0"
+version = "0.2.0"
 description = "A package to convert simple root files with branches inside and ntuple to a HDF5 or a PICKLE file format!"
 authors = ["Uttiya Sarkar"]
 license = "MIT"
@@ -9,6 +9,8 @@ include = ["tests/*"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
+uproot = "^5.0.3"
+pickle5 = {version = "^0.0.12", python = ">=3.6, <3.8"}
 
 [tool.poetry.dev-dependencies]
 
