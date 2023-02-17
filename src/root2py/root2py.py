@@ -22,18 +22,17 @@ def open(**kwargs)->ak:
     -------
     root file in pandas dataframe format.
 
-    Example
+    Examples
     --------
-    >>>from root2py.root2py import open
-    >>>df= open(filename=input,branches=branchename,tree=treename)
-    >>>print(df)
-
+    >>> from root2py.root2py import open
+    >>> df= open(filename=input,branches=branchename,tree=treename)
+    >>> print(df)
     """
     return uproot.open(kwargs['filename'])[kwargs['tree']].arrays(kwargs['branches'], library='ak')
 
 ###############Def saves any root file to a hdf format##################
 def savehdf(outfile: str,**kwargs):
-   """Save dataset in HDF5 format.
+    """Save dataset in HDF5 format.
     
     Parameters
     ----------
@@ -47,14 +46,12 @@ def savehdf(outfile: str,**kwargs):
     -------
     Save root file in HDF5 format.
 
-    Example
+    Examples
     --------
-    >>>from root2py.root2py import savehdf
-    >>>df2 = savehdf(output,filename=input,branches=branchename,tree=treename)
-
+    >>> from root2py.root2py import savehdf
+    >>> df = savehdf(output,filename=input,branches=branchename,tree=treename)
     """
     df =  open(**kwargs)
-    #
     store = ak.to_dataframe(df)  
         #print(df[i])
     store.to_hdf(outfile,'key',mode='w')         
@@ -79,11 +76,10 @@ def savepkl(outfile: str,*pkloption,**kwargs):
     -------
     Save root file in Pickle format.
 
-    Example
+    Examples
     --------
-    >>>from root2py.root2py import savepkl
-    >>>df2 = savepkl(output2,filename=input,branches=branchename,tree=treename)
-    
+    >>> from root2py.root2py import savepkl
+    >>> df2 = savepkl(output2,filename=input,branches=branchename,tree=treename)
     """
     df =  open(**kwargs)
     #
